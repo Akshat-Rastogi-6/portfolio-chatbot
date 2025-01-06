@@ -9,6 +9,7 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 import numpy as np
 import torch
+from waitress import serve
 
 load_dotenv()
 genai.configure(api_key=os.environ['GEMINI_API_KEY'])
@@ -51,4 +52,4 @@ def chat():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    serve(app, host='0.0.0.0', port=5000)

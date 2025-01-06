@@ -19,3 +19,4 @@ PyPDF2==3.0.1
 tensor==0.3.6
 torch==2.5.1
 python-dotenv==1.0.1
+waitress
