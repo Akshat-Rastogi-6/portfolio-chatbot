@@ -30,6 +30,7 @@ def process_resume_and_query(query):
     llm = genai.GenerativeModel('gemini-1.5-flash')
     response = llm.generate_content(input_prompt)
     print(response.text)
+    return response.text
 
 
 @app.route('/chat', methods=['POST'])
