@@ -32,6 +32,10 @@ def process_resume_and_query(query):
     print(response.text)
     return response.text
 
+@app.route('/', methods=['GET'])
+def home():
+    return "App is running!", 200
+
 
 @app.route('/chat', methods=['POST'])
 def chat():
