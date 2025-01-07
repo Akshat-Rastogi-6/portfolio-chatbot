@@ -22,7 +22,7 @@ def process_resume_and_query(query):
     query_embed_result = genai.embed_content(model="models/text-embedding-004", content=query)
     query_embedding = torch.tensor(query_embed_result['embedding'], dtype=torch.float32)
     query_embedding_array = np.expand_dims(np.array(query_embedding, dtype='float32'), axis=0)
-    index = faiss.read_index(r"docs\resume_index.faiss")
+    index = faiss.read_index("docs/resume_index.faiss")
     distances, indices = index.search(query_embedding_array, 3)
     context = "\n".join(chunked)
     system_prompt = "You are a professional assistant. Answer all the user query on my behalf. Provide concise, accurate, and relevant answers to the user's queries. Keep your responses short and straight to the point, avoiding unnecessary details. Maintain a professional tone at all times."
