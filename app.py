@@ -3,7 +3,6 @@ import faiss
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from PyPDF2 import PdfReader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 import os
 import google.generativeai as genai
 from dotenv import load_dotenv
@@ -57,5 +56,6 @@ def chat():
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    serve(app, host='0.0.0.0', port=port)
+    # port = int(os.environ.get("PORT", 5000))
+    # serve(app, host='0.0.0.0', port=port)
+    app.run(port=8001, debug=True)
